@@ -1,24 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Player from './Player';
 
 function App() {
+  const [data,setData] = React.useState<Player[]>([]);
+  React.useEffect(()=> {
+    fetch('https://u6dt8amky7.execute-api.us-east-2.amazonaws.com/test/players')
+    .then(response => response.json())
+    .then(data => setData(data.Items));
+
+  },[]);
+  const items = data.map( (item, index) => <div key={index}>{item.FirstName} {item.LastName}</div>);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {items}
     </div>
   );
 }
