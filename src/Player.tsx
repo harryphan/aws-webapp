@@ -1,6 +1,7 @@
 interface Player {
-  FirstName: string;
-  LastName: string;
+  Name: string;
+  Number: number;
+  PassingInterceptions: number;
 };
 
 export default Player;
