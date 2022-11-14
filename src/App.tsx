@@ -11,7 +11,7 @@ function App() {
     .then(data => setData(data.Items));
 
   },[]);
-  const items = data.map( (item, index) => <div key={index}>{item.Name} {item.Number} {item.PassingInterceptions}</div>);
+  const items = data.map( (item, index) => <div key={index}>{item.Name} {item.Number} {item.PassingCompletions} {item.PassingAttempts} {item.PassingCompletionPercentage} {item.PassingInterceptions}</div>);
   return (
     <div>
       {items}
