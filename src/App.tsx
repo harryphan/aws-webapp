@@ -11,10 +11,28 @@ function App() {
     .then(data => setData(data.Items));
 
   },[]);
-  const items = data.map( (item, index) => <div key={index}>{item.Name} {item.Number} {item.PassingCompletions} {item.PassingAttempts} {item.PassingCompletionPercentage} {item.PassingInterceptions}</div>);
+  const items = data.map( (item, index) =>
+  <tr key={index}>
+    <td>{item.Name}</td>
+    <td>{item.Number}</td>
+    <td>{item.PassingCompletions}</td>
+    <td>{item.PassingAttempts}</td>
+    <td>{item.PassingCompletionPercentage}</td>
+    <td>{item.PassingInterceptions}</td>
+    </tr>);
   return (
     <div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Number</th>
+          <th>Passing Completions</th>
+          <th>Passing Attempts</th>
+          <th>Passing Completion %</th>
+          <th>Passing Interceptions</th>
+        </tr>
       {items}
+      </table>
     </div>
   );
 }
